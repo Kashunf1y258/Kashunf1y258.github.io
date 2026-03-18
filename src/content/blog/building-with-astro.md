@@ -1,45 +1,45 @@
 ---
-title: "Building This Site with Astro"
-description: "A deep dive into how I built this developer site using Astro and why I chose it."
+title: "使用 Astro 构建这个网站"
+description: "深入了解我如何使用 Astro 构建这个开发者网站，以及为什么选择它。"
 pubDate: 2026-03-18
-tags: ["astro", "web-development", "tutorial"]
+tags: ["astro", "web开发", "教程"]
 ---
 
-When deciding how to build my developer site, I evaluated several static site generators. After careful consideration, I chose [Astro](https://astro.build) for several compelling reasons.
+在决定如何构建我的开发者网站时，我评估了几个静态站点生成器。经过仔细考虑，我选择了 [Astro](https://astro.build)，原因如下。
 
-## Why Astro?
+## 为什么选择 Astro？
 
-Astro offers some unique advantages that made it the perfect choice:
+Astro 提供了一些独特的优势，使其成为完美的选择：
 
-### Zero JavaScript by Default
+### 默认零 JavaScript
 
-Astro ships zero JavaScript to the client by default. This means incredibly fast page loads and better performance scores. When you do need interactivity, Astro's Islands Architecture loads JavaScript only where needed.
+Astro 默认不向客户端发送任何 JavaScript。这意味着极快的页面加载和更好的性能评分。当你确实需要交互性时，Astro 的群岛架构只在需要的地方加载 JavaScript。
 
-### Content Collections
+### 内容集合
 
-The built-in Content Collections feature provides type-safe markdown with Zod validation. This catches errors at build time rather than runtime, giving you confidence in your content structure.
+内置的内容集合功能提供带有 Zod 验证的类型安全 Markdown。这可以在构建时而不是运行时捕获错误，让你对内容结构充满信心。
 
-### Great Developer Experience
+### 出色的开发者体验
 
-Hot module replacement, TypeScript support, and excellent documentation make building with Astro a joy. The component-based architecture is intuitive for anyone familiar with modern web development.
+热模块替换、TypeScript 支持和优秀的文档让使用 Astro 构建成为一种享受。基于组件的架构对于任何熟悉现代 Web 开发的人来说都很直观。
 
-## Features Implemented
+## 实现的功能
 
-Here's what's currently running on this site:
+这个网站目前正在运行：
 
-- **Blog** with markdown and MDX support for rich content
-- **Project showcase** for my portfolio work
-- **Dark mode** with system preference detection
-- **Search** using Pagefind for fast, static search
-- **Comments** via Giscus for reader engagement
+- **博客** - 支持 Markdown 和 MDX 以获得丰富内容
+- **项目展示** - 展示我的作品集
+- **深色模式** - 检测系统偏好
+- **搜索** - 使用 Pagefind 实现快速静态搜索
+- **评论** - 通过 Giscus 实现读者互动
 
-## Performance Results
+## 性能结果
 
-The site achieves excellent performance metrics:
+网站实现了出色的性能指标：
 
-- Perfect Lighthouse scores
-- Sub-second page loads
-- Minimal JavaScript payload
-- Optimized images with automatic formats
+- 完美的 Lighthouse 评分
+- 亚秒级页面加载
+- 最小的 JavaScript 负载
+- 自动格式优化图片
 
-I'm excited to continue building and improving this site! If you're considering Astro for your next project, I highly recommend giving it a try.
+我很高兴继续构建和改进这个网站！如果你正在考虑为你的下一个项目使用 Astro，我强烈建议试一试。

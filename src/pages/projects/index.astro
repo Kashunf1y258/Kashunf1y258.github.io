@@ -12,9 +12,9 @@ const filteredProjects = activeStatus === 'all'
 	: projects.filter((p) => p.data.status === activeStatus);
 ---
 
-<Layout title="Projects" description="A collection of my projects">
+<Layout title="项目" description="我的项目作品集">
 	<section>
-		<h1>Projects</h1>
+		<h1>项目</h1>
 		
 		<nav class="filters">
 			{statuses.map((status) => (
@@ -22,7 +22,7 @@ const filteredProjects = activeStatus === 'all'
 					href={status === 'all' ? '/projects/' : `/projects/?status=${status}`}
 					class:list={['filter-btn', { active: activeStatus === status }]}
 				>
-					{status.charAt(0).toUpperCase() + status.slice(1)}
+					{status === 'all' ? '全部' : status === 'active' ? '进行中' : status === 'completed' ? '已完成' : '已归档'}
 				</a>
 			))}
 		</nav>
@@ -34,7 +34,7 @@ const filteredProjects = activeStatus === 'all'
 		</div>
 
 		{filteredProjects.length === 0 && (
-			<p class="empty">No projects found for this status.</p>
+			<p class="empty">没有找到相关项目。</p>
 		)}
 	</section>
 </Layout>

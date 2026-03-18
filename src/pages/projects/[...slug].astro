@@ -43,7 +43,7 @@ const { title, description, pubDate, heroImage, tech, github, demo, status } = p
 				</div>
 
 				<div class="tech-stack">
-					<h2>Tech Stack</h2>
+					<h2>技术栈</h2>
 					<div class="tech-tags">
 						{tech && tech.map((t: string) => (
 							<span class="tech-tag">{t}</span>
@@ -53,11 +53,11 @@ const { title, description, pubDate, heroImage, tech, github, demo, status } = p
 
 				<div class="links">
 					<a href={github} target="_blank" rel="noopener noreferrer" class="btn-github">
-						View on GitHub
+						在 GitHub 上查看
 					</a>
 					{demo && (
 						<a href={demo} target="_blank" rel="noopener noreferrer" class="btn-demo">
-							Live Demo
+							在线演示
 						</a>
 					)}
 				</div>

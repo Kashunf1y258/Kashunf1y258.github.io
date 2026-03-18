@@ -1,6 +1,6 @@
 ---
-title: "Sample Project"
-description: "A sample project to demonstrate the projects showcase feature."
+title: "示例项目"
+description: "一个用于演示项目展示功能的示例项目。"
 pubDate: 2024-01-15
 tech:
   - Astro
@@ -11,4 +11,4 @@ demo: "https://example.com"
 status: "active"
 ---
 
-This is a sample project demonstrating the project showcase functionality.
+这是一个用于演示项目展示功能的示例项目。

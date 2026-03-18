@@ -11,27 +11,27 @@ const projects = await getCollection('projects');
 const featuredProjects = projects.slice(0, 2);
 ---
 
-<Layout title="Home" description="Developer portfolio showcasing projects, blog posts, and technical articles.">
+<Layout title="首页" description="分享技术文章与项目作品，记录学习与成长。">
 	<section class="hero">
 		<div class="hero-bg-glow"></div>
 		<div class="hero-grid"></div>
 		<div class="hero-content">
 			<div class="hero-badge animate-fade-in" style="animation-delay: 0.1s">
-				<span class="pulse-dot"></span> Available for new opportunities
+				<span class="pulse-dot"></span> 欢迎访问
 			</div>
 			<h1 class="hero-title animate-fade-in" style="animation-delay: 0.2s">
-				Designing & Building <br />
-				<span class="text-gradient">Modern Web Experiences</span>
+				设计与构建 <br />
+				<span class="text-gradient">现代 Web 应用</span>
 			</h1>
 			<p class="hero-tagline animate-fade-in" style="animation-delay: 0.3s">
-				I'm a developer focusing on clean code, intuitive design, and seamless user experiences. Turning complex problems into elegant solutions.
+				热爱编程，专注于代码质量与用户体验。将复杂问题转化为优雅的解决方案。
 			</p>
 			<div class="hero-actions animate-fade-in" style="animation-delay: 0.4s">
 				<a href="/projects" class="btn btn-primary">
-					View Work
+					查看项目
 				</a>
 				<a href="/blog" class="btn btn-secondary">
-					Read Articles
+					阅读文章
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<line x1="5" y1="12" x2="19" y2="12"></line>
 						<polyline points="12 5 19 12 12 19"></polyline>
@@ -43,9 +43,9 @@ const featuredProjects = projects.slice(0, 2);
 
 	<section class="section">
 		<div class="section-header">
-			<h2 class="section-title">Selected Projects</h2>
+			<h2 class="section-title">精选项目</h2>
 			<a href="/projects" class="section-link">
-				View all
+				查看全部
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
@@ -63,9 +63,9 @@ const featuredProjects = projects.slice(0, 2);
 
 	<section class="section">
 		<div class="section-header">
-			<h2 class="section-title">Latest Writing</h2>
+			<h2 class="section-title">最新文章</h2>
 			<a href="/blog" class="section-link">
-				View all
+				查看全部
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
@@ -91,7 +91,7 @@ const featuredProjects = projects.slice(0, 2);
 		min-height: 80vh;
 		padding: var(--space-12) 0;
 		overflow: hidden;
-		margin-top: -80px; /* Offset for header */
+		margin-top: -80px;
 		padding-top: 80px;
 	}
 

@@ -1,30 +1,30 @@
 ---
-title: "Welcome to My Developer Site"
-description: "An introduction to my new developer site and what you can expect to find here."
+title: "欢迎访问我的开发者博客"
+description: "介绍我的新开发者博客，以及你可以在这里找到什么。"
 pubDate: 2026-03-18
-tags: ["welcome", "introduction"]
+tags: ["欢迎", "介绍"]
 ---
 
-Welcome to my developer site! This is a space where I'll be sharing my thoughts on software development, programming tutorials, and interesting projects I'm working on.
+欢迎访问我的开发者博客！这里是我分享软件开发心得、编程教程和有趣项目的地方。
 
-## What to Expect
+## 你可以期待什么
 
-On this site, you'll find:
+在这个网站上，你会找到：
 
-- **Technical blog posts** covering web development, JavaScript/TypeScript, and modern frameworks
-- **Project showcases** highlighting my work with detailed explanations
-- **Tutorials and guides** to help others learn from my experiences
+- **技术博客文章** - 涵盖 Web 开发、JavaScript/TypeScript 和现代框架
+- **项目展示** - 展示我的作品并提供详细说明
+- **教程和指南** - 帮助他人从我的经验中学习
 
-## Why I Built This
+## 为什么建立这个网站
 
-I believe in learning in public and sharing knowledge with the community. This site is built with [Astro](https://astro.build), a modern static site generator that delivers exceptional performance.
+我相信公开学习并与社区分享知识。这个网站使用 [Astro](https://astro.build) 构建，这是一个提供卓越性能的现代静态站点生成器。
 
-## My Journey
+## 我的旅程
 
-After years of working as a software developer, I wanted a place to document my learnings, share insights, and connect with fellow developers. This site represents my commitment to continuous learning and knowledge sharing.
+在作为软件开发人员工作了多年之后，我想要一个地方来记录我的学习、分享见解并与开发者同行建立联系。这个网站代表了我对持续学习和知识分享的承诺。
 
-## Connect With Me
+## 联系我
 
-Feel free to explore the content, leave comments on posts that resonate with you, and reach out if you have questions or want to collaborate. I'm always excited to connect with fellow developers and learners!
+欢迎探索内容，在引起共鸣的文章上留下评论，如果你有问题或想合作，请与我联系。我总是很高兴与开发者同行和学习者建立联系！
 
-Stay tuned for more content coming soon!
+敬请期待更多内容！

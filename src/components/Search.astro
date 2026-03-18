@@ -4,7 +4,7 @@
 ---
 
 <div id="search" class="search-container">
-  <button id="search-trigger" class="search-trigger" aria-label="Search">
+  <button id="search-trigger" class="search-trigger" aria-label="搜索">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="11" cy="11" r="8"></circle>
       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -111,7 +111,7 @@
         // Create search input
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = 'Search...';
+        input.placeholder = '搜索...';
         input.className = 'search-input';
         input.style.width = '100%';
         input.style.padding = '0.5rem';
@@ -139,7 +139,7 @@
               resultsContainer.appendChild(input);
               
               if (results.length === 0) {
-                resultsContainer.innerHTML += '<p>No results found</p>';
+                resultsContainer.innerHTML += '<p>未找到结果</p>';
               } else {
                 results.forEach(function(result) {
                   const resultEl = document.createElement('div');
