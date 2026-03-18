@@ -1,81 +1,140 @@
-# Astro Starter Kit: Blog
+# Developer Site
 
-```sh
-npm create astro@latest -- --template blog
+A modern, extensible developer portfolio and blog built with Astro 5.x, deployed on GitHub Pages.
+
+## Features
+
+- **Blog** - Content Collections with MDX support, syntax highlighting, and tags
+- **Projects** - Portfolio showcase with tech stack, status badges, and links
+- **Dark Mode** - System-aware theme with manual toggle, no flash on load
+- **Local Search** - Pagefind integration for instant, privacy-friendly search
+- **Comments** - Giscus-powered discussions via GitHub
+- **SEO** - Sitemap, RSS feed, Open Graph, and Twitter cards
+- **AI Ready** - Extension points documented for future LLM integration
+
+## Tech Stack
+
+- **Framework**: [Astro 5.x](https://astro.build/)
+- **Content**: Content Collections with Zod schemas
+- **Search**: [Pagefind](https://pagefind.app/)
+- **Comments**: [Giscus](https://giscus.app/)
+- **Deployment**: GitHub Pages + GitHub Actions
+
+## Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/     # UI components
+│   ├── content/        # Blog posts and projects (Markdown/MDX)
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Routes
+│   ├── services/       # AI service interface (placeholder)
+│   └── styles/         # Global CSS with custom properties
+├── public/             # Static assets
+├── docs/               # Extension documentation
+└── dist/               # Build output
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command           | Action                                      |
+|:------------------|:--------------------------------------------|
+| `npm install`     | Install dependencies                        |
+| `npm run dev`     | Start dev server at `localhost:4321`        |
+| `npm run build`   | Build to `./dist/`                          |
+| `npm run preview` | Preview build locally                       |
+| `npm run test`    | Run Vitest tests                            |
+| `npx astro check` | TypeScript diagnostics                      |
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Content Management
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Blog Posts
 
-## 🧞 Commands
+Add posts to `src/content/blog/`:
 
-All commands are run from the root of the project, from a terminal:
+```markdown
+---
+title: "My Post"
+description: "A brief summary"
+pubDate: 2026-03-18
+heroImage: "../../assets/my-image.jpg"
+tags: ["astro", "web"]
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Content here...
+```
 
-## 👀 Want to learn more?
+### Projects
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Add projects to `src/content/projects/`:
 
-## 💬 Comments
+```markdown
+---
+title: "Project Name"
+description: "What it does"
+pubDate: 2026-03-18
+heroImage: "../../assets/project.png"
+tech: ["TypeScript", "Astro"]
+github: "https://github.com/user/repo"
+demo: "https://demo.example.com"
+status: "active"  # active | completed | archived
+---
 
-This site uses [Giscus](https://giscus.app/) for blog post comments. Comments are powered by GitHub Discussions.
+Description here...
+```
 
-### Setup
+## Configuration
 
-To configure Giscus for your own repository:
+### Site Metadata
 
-1. Go to https://giscus.app/
-2. Select your GitHub repository
-3. Choose "Announcements" as the discussion category (or create a new one)
-4. Copy the generated `repoId` and `categoryId`
-5. Update `src/components/Giscus.astro` with your configuration
+Edit `src/consts.ts`:
 
-The component is already configured for this repository with:
-- Repo: Kashunf1y258/Kashunf1y258.github.io
-- Category: Announcements
-- Theme: Auto (follows site dark/light mode)
+```typescript
+export const SITE_TITLE = 'Your Name';
+export const SITE_DESCRIPTION = 'Your site description';
+```
 
-## Credit
+### Giscus Comments
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+1. Enable Discussions on your GitHub repo
+2. Visit [giscus.app](https://giscus.app/) to generate configuration
+3. Update `src/components/Giscus.astro` with your `repoId` and `categoryId`
+
+## AI Extension
+
+The `/ai` route and `src/services/ai-service.ts` provide extension points for future LLM integration. See `docs/ai-extension-points.md` for the migration strategy.
+
+**Current status**: Placeholder UI with mock service. No API calls.
+
+## Deployment
+
+The site auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`.
+
+1. Push to `main` branch
+2. GitHub Actions builds and deploys
+3. Site live at `https://<username>.github.io`
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Run tests
+npm run test
+
+# Type check
+npx astro check
+
+# Build for production
+npm run build
+```
+
+## Credits
+
+- Theme inspired by [Bear Blog](https://github.com/HermanMartinus/bearblog/)
+- Built with [Astro](https://astro.build/)
+- Search powered by [Pagefind](https://pagefind.app/)

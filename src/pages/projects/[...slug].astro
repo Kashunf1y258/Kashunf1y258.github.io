@@ -45,7 +45,7 @@ const { title, description, pubDate, heroImage, tech, github, demo, status } = p
 				<div class="tech-stack">
 					<h2>Tech Stack</h2>
 					<div class="tech-tags">
-						{tech.map((t: string) => (
+						{tech && tech.map((t: string) => (
 							<span class="tech-tag">{t}</span>
 						))}
 					</div>
