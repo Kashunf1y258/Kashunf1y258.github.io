@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 
 const posts = await getCollection('blog', (p) => !p.data.draft);
 const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
@@ -11,133 +13,319 @@ const featuredProjects = projects.slice(0, 2);
 
 <Layout title="Home">
 	<section class="hero">
-		<h1>Developer & Creator</h1>
-		<p class="tagline">Building modern web experiences with passion and precision.</p>
-		<div class="hero-links">
-			<a href="/blog" class="button">Read Blog</a>
-			<a href="/projects" class="button secondary">View Projects</a>
+		<div class="hero-content">
+			<div class="hero-badge">Welcome to my corner of the web</div>
+			<h1 class="hero-title">
+				<span class="hero-name">Developer</span>
+				<span class="hero-divider">&</span>
+				<span class="hero-name">Creator</span>
+			</h1>
+			<p class="hero-tagline">
+				Building modern web experiences with passion, precision, and a focus on developer experience.
+			</p>
+			<div class="hero-actions">
+				<a href="/blog" class="btn btn-primary">
+					<span>Read Blog</span>
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/projects" class="btn btn-secondary">View Projects</a>
+			</div>
+		</div>
+		<div class="hero-decoration">
+			<div class="decoration-circle"></div>
+			<div class="decoration-grid"></div>
 		</div>
 	</section>
 
-	<section class="recent-posts">
-		<h2>Recent Posts</h2>
-		<div class="post-grid">
-			{recentPosts.map((post) => (
-				<article class="post-card">
-					<a href={`/blog/${post.id}/`}>
-						<h3>{post.data.title}</h3>
-						<p>{post.data.description}</p>
-						<time>{post.data.pubDate.toLocaleDateString()}</time>
-					</a>
-				</article>
+	<section class="section">
+		<div class="section-header">
+			<h2 class="section-title">Recent Posts</h2>
+			<a href="/blog" class="section-link">
+				View all
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+		<div class="posts-grid">
+			{recentPosts.map((post, index) => (
+				<div class="animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+					<BlogCard post={post} />
+				</div>
 			))}
 		</div>
-		<a href="/blog" class="view-all">View all posts →</a>
 	</section>
 
-	<section class="featured-projects">
-		<h2>Featured Projects</h2>
-		<div class="project-grid">
-			{featuredProjects.map((project) => (
-				<article class="project-card">
-					<a href={`/projects/${project.id}/`}>
-						<h3>{project.data.title}</h3>
-						<p>{project.data.description}</p>
-						<span class="status">{project.data.status || 'active'}</span>
-					</a>
-				</article>
+	<section class="section">
+		<div class="section-header">
+			<h2 class="section-title">Featured Projects</h2>
+			<a href="/projects" class="section-link">
+				View all
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+		<div class="projects-grid">
+			{featuredProjects.map((project, index) => (
+				<div class="animate-fade-in" style={`animation-delay: ${index * 0.15}s`}>
+					<ProjectCard project={project} />
+				</div>
 			))}
 		</div>
-		<a href="/projects" class="view-all">View all projects →</a>
 	</section>
 
-	<section class="about-preview">
-		<h2>About Me</h2>
-		<p>A passionate developer focused on building modern, accessible web experiences. Check out my <a href="/about">full bio</a>.</p>
+	<section class="about-section">
+		<div class="about-card">
+			<div class="about-icon">
+				<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+					<circle cx="12" cy="7" r="4"></circle>
+				</svg>
+			</div>
+			<div class="about-content">
+				<h2 class="about-title">About Me</h2>
+				<p class="about-text">
+					A passionate developer focused on building modern, accessible web experiences. 
+					I believe in clean code, thoughtful design, and continuous learning.
+				</p>
+				<a href="/about" class="about-link">
+					Learn more about my journey
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
 	</section>
 </Layout>
 
 <style>
 	.hero {
-		text-align: center;
-		padding: 4rem 1rem;
-	}
-	.hero h1 {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
-	.tagline {
-		font-size: 1.25rem;
-		color: var(--color-text-secondary);
-		margin-bottom: 2rem;
-	}
-	.hero-links {
+		position: relative;
 		display: flex;
-		gap: 1rem;
+		align-items: center;
+		justify-content: center;
+		min-height: 70vh;
+		padding: var(--space-12) var(--space-4);
+		overflow: hidden;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		max-width: 800px;
+	}
+
+	.hero-badge {
+		display: inline-block;
+		padding: var(--space-2) var(--space-4);
+		background: var(--color-primary-light);
+		color: var(--color-primary);
+		border-radius: var(--radius-full);
+		font-size: var(--text-sm);
+		font-weight: 500;
+		margin-bottom: var(--space-6);
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 8vw, 4.5rem);
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0 0 var(--space-6);
+		letter-spacing: -0.02em;
+	}
+
+	.hero-name {
+		display: block;
+	}
+
+	.hero-divider {
+		display: inline-block;
+		margin: 0 var(--space-4);
+		color: var(--color-primary);
+		font-weight: 300;
+	}
+
+	.hero-tagline {
+		font-size: var(--text-xl);
+		color: var(--color-text-secondary);
+		line-height: var(--leading-relaxed);
+		margin: 0 0 var(--space-8);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: var(--space-4);
 		justify-content: center;
 		flex-wrap: wrap;
 	}
-	.button {
-		padding: 0.75rem 1.5rem;
-		background: var(--color-primary);
-		color: white;
-		border-radius: 0.5rem;
-		text-decoration: none;
+
+	.hero-decoration {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		opacity: 0.5;
 	}
-	.button.secondary {
-		background: transparent;
-		border: 2px solid var(--color-primary);
-		color: var(--color-primary);
+
+	.decoration-circle {
+		position: absolute;
+		top: 10%;
+		right: 10%;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		background: radial-gradient(circle, var(--color-primary-light), transparent 70%);
+		filter: blur(60px);
 	}
-	section {
-		padding: 3rem 1rem;
+
+	.decoration-grid {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 200px;
+		background-image: 
+			linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+		background-size: 60px 60px;
+		mask-image: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+		-webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+	}
+
+	.section {
+		padding: var(--space-16) var(--space-4);
 		max-width: 1200px;
 		margin: 0 auto;
 	}
-	.post-grid, .project-grid {
+
+	.section-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: var(--space-8);
+		gap: var(--space-4);
+		flex-wrap: wrap;
+	}
+
+	.section-title {
+		font-size: var(--text-3xl);
+		margin: 0;
+	}
+
+	.section-link {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2);
+		font-size: var(--text-base);
+		font-weight: 500;
+		color: var(--color-primary);
+		transition: gap var(--transition-fast);
+	}
+
+	.section-link:hover {
+		gap: var(--space-3);
+	}
+
+	.posts-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-		margin: 2rem 0;
+		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+		gap: var(--space-6);
 	}
-	.post-card, .project-card {
-		padding: 1.5rem;
-		border: 1px solid var(--color-border);
-		border-radius: 0.5rem;
-	}
-	.post-card a, .project-card a {
-		text-decoration: none;
-		color: inherit;
-	}
-	.view-all {
-		display: inline-block;
-		margin-top: 1rem;
-		color: var(--color-primary);
-	}
-	.status {
-		display: inline-block;
-		padding: 0.25rem 0.5rem;
-		background: var(--color-accent);
-		border-radius: 0.25rem;
-		font-size: 0.875rem;
-	}
-	.about-preview {
-		text-align: center;
-		padding-bottom: 4rem;
-	}
-	.about-preview a {
-		color: var(--color-primary);
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		gap: var(--space-6);
 	}
 
 	@media (max-width: 640px) {
-		.hero h1 {
-			font-size: 2rem;
+		.posts-grid,
+		.projects-grid {
+			grid-template-columns: 1fr;
 		}
-		.tagline {
-			font-size: 1rem;
+
+		.hero-title {
+			font-size: 2.5rem;
 		}
-		section {
-			padding: 2rem 1rem;
+
+		.hero-tagline {
+			font-size: var(--text-lg);
+		}
+	}
+
+	.about-section {
+		padding: var(--space-12) var(--space-4);
+		background: var(--color-background-alt);
+		margin-top: var(--space-12);
+	}
+
+	.about-card {
+		display: flex;
+		align-items: center;
+		gap: var(--space-8);
+		max-width: 800px;
+		margin: 0 auto;
+		padding: var(--space-8);
+		background: var(--color-background-elevated);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2xl);
+	}
+
+	.about-icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+		border-radius: var(--radius-xl);
+		color: white;
+	}
+
+	.about-content {
+		flex: 1;
+	}
+
+	.about-title {
+		font-size: var(--text-2xl);
+		margin: 0 0 var(--space-3);
+	}
+
+	.about-text {
+		color: var(--color-text-secondary);
+		line-height: var(--leading-relaxed);
+		margin: 0 0 var(--space-4);
+	}
+
+	.about-link {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2);
+		font-weight: 500;
+		color: var(--color-primary);
+		transition: gap var(--transition-fast);
+	}
+
+	.about-link:hover {
+		gap: var(--space-3);
+	}
+
+	@media (max-width: 768px) {
+		.about-card {
+			flex-direction: column;
+			text-align: center;
 		}
 	}
 </style>
