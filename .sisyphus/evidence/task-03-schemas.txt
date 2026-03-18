@@ -1,0 +1,77 @@
+================================================================================
+Task 3: Content Collections Schemas (TDD) - QA Evidence
+================================================================================
+Date: Wed Mar 18 2026
+
+=== Content Config ===
+---
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+const blog = defineCollection({
+	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			pubDate: z.coerce.date(),
+			updatedDate: z.coerce.date().optional(),
+			heroImage: z.optional(image()),
+			draft: z.boolean().optional(),
+			tags: z.array(z.string()).optional(),
+		}),
+});
+
+const projects = defineCollection({
+	loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			pubDate: z.coerce.date(),
+			heroImage: z.optional(image()),
+			tech: z.array(z.string()).optional(),
+			github: z.string().url().optional(),
+			demo: z.string().url().optional(),
+			status: z.enum(['active', 'archived', 'wip']).optional(),
+		}),
+});
+
+export const collections = { blog, projects };
+---
+
+=== Collections Defined ===
+- blog: title, description, pubDate, updatedDate, heroImage, draft, tags
+- projects: title, description, pubDate, heroImage, tech, github, demo, status
+
+=== Placeholder Files ===
+src/content/blog/ (existing files):
+- first-post.md
+- markdown-style-guide.md
+- second-post.md
+- third-post.md
+- using-mdx.mdx
+
+src/content/projects/:
+- placeholder.md (NEW)
+
+=== Test File ===
+src/content/__tests__/schemas.test.ts (NEW)
+- Tests for blog and projects collections
+- Tests for required and optional fields
+- Note: Vitest will be installed in Task 6; tests will run after that
+
+=== Build Verification ===
+npm run build: PASSED
+- 8 pages built successfully
+- Content collections synced correctly
+
+=== Notes ===
+- Vitest not yet installed (Task 6 will install it)
+- Schema validation via TDD approach implemented
+- Build passes with type checking
+
+================================================================================
+STATUS: COMPLETED
+================================================================================

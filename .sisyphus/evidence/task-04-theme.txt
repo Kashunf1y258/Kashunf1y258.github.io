@@ -1,0 +1,38 @@
+Task 4 QA Evidence
+Date: Wed Mar 18 2026
+
+=== CSS Custom Properties ===
+--color-primary: #2337ff;
+--color-background: #ffffff;
+--color-text: #111827;
+--color-text-secondary: #4b5563;
+--color-border: #e5e7eb;
+--color-accent: #e0e7ff;
+--spacing-xs: 0.25rem;
+--spacing-sm: 0.5rem;
+--spacing-md: 1rem;
+--spacing-lg: 2rem;
+--spacing-xl: 4rem;
+--font-sans: 'Atkinson', system-ui, sans-serif;
+--font-mono: 'IBM Plex Mono', monospace;
+--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+--color-primary: #6b8aff;
+--color-background: #0f172a;
+--color-text: #f8fafc;
+--color-text-secondary: #94a3b8;
+--color-border: #1e293b;
+--color-accent: #1e293b;
+
+=== Token Count (--color- occurrences) ===
+20
+
+=== Unique Custom Property Definitions ===
+20
+
+=== Test Result: PASSED ===
+- global.css exists: YES
+- Light theme tokens defined: YES (in :root)
+- Dark theme tokens defined: YES (in [data-theme="dark"] and @media prefers-color-scheme)
+- Token count >= 10: PASSED (20 occurrences)
+- Custom properties <= 20: PASSED (20 unique definitions)
+- Layout imports global.css: YES

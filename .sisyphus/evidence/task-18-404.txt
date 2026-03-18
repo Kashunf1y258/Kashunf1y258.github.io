@@ -1,0 +1,11 @@
+Task 18 QA Evidence
+Date: Wed Mar 18 20:00:17 CST 2026
+
+=== 404 Page ===
+-rw-r--r--@ 1 ka_mac  staff  1030 Mar 18 20:00 Kashunf1y258.github.io/src/pages/404.astro
+
+=== Build Output ===
+-rw-r--r--@ 1 ka_mac  staff  16436 Mar 18 20:00 Kashunf1y258.github.io/dist/404.html
+
+=== Test Result: PASS ===
+404 page exists and builds successfully

@@ -1,0 +1,23 @@
+Task 17 QA Evidence - SEO Meta + Sitemap
+Date: Wed Mar 18 2026
+
+=== robots.txt ===
+User-agent: *
+Allow: /
+Sitemap: https://kashunf1y258.github.io/sitemap-index.xml
+
+=== Sitemap Index ===
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://kashunf1y258.github.io/sitemap-0.xml</loc>
+  </sitemap>
+</sitemapindex>
+
+=== Verification ===
+- robots.txt: EXISTS
+- sitemap-index.xml: EXISTS
+- sitemap-0.xml: EXISTS
+- BaseHead.astro has all SEO tags: YES (title, description, og:*, twitter:*, canonical)
+
+=== Result: PASSED ===

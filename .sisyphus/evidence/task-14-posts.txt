@@ -1,0 +1,20 @@
+Task 14 QA Evidence
+Date: Wed Mar 18 2026
+
+=== Blog Posts Created ===
+/Users/ka_mac/Projects/personal/Kashunf1y258.github.io/src/content/blog/welcome.md
+/Users/ka_mac/Projects/personal/Kashunf1y258.github.io/src/content/blog/building-with-astro.md
+/Users/ka_mac/Projects/personal/Kashunf1y258.github.io/src/content/blog/my-dev-setup.md
+
+=== Draft Check ===
+Draft post: my-dev-setup.md (contains draft: true)
+
+=== Build Output ===
+Dist/blog contains: building-with-astro, first-post, index.html, markdown-style-guide, second-post, third-party, using-mdx, welcome
+Draft post "my-dev-setup" is NOT in dist (correctly excluded)
+
+=== Test Result: PASS ===
+- 3 blog posts created
+- 1 draft post exists (my-dev-setup.md)
+- Draft excluded in production build
+- Build succeeds

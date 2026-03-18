@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kashunf1y258.github.io/sitemap-index.xml

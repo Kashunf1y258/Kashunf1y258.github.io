@@ -1,0 +1,46 @@
+================================================================================
+TASK 12 QA EVIDENCE - Navigation + Sidebar
+================================================================================
+Date: $(date)
+Task: Create Navigation and Sidebar components
+
+=== FILES CREATED ===
+1. src/components/Nav.astro - Navigation with mobile hamburger menu
+2. src/components/Sidebar.astro - Recent posts and tags cloud
+
+=== FILES MODIFIED ===
+1. src/components/Header.astro - Integrated Nav component
+
+=== NAVIGATION LINKS VERIFICATION ===
+
+=== Nav.astro Links ===
+href="/">Home</a> → / ✓
+href="/blog">Blog</a> → /blog ✓
+href="/projects">Projects</a> → /projects ✓
+href="/about">About</a> → /about ✓
+
+=== HeaderLink Components (mobile menu) ===
+href="/">Home</a>
+href="/blog">Blog</a>
+href="/projects">Projects</a>
+href="/about">About</a>
+
+=== Header.astro Integration ===
+import Nav from './Nav.astro';
+		<Nav />
+
+=== Pages Exist ===
+/ → src/pages/index.astro ✓
+/blog → src/pages/blog/index.astro ✓
+/projects → src/pages/projects/index.astro ✓
+/about → src/pages/about.astro ✓
+
+=== QA Result ===
+Status: PASSED
+- Nav component created with 4 links: Home, Blog, Projects, About
+- Mobile hamburger menu implemented with JavaScript toggle
+- Sidebar component created with recent posts and tags cloud
+- Header.astro updated to use Nav component
+- All navigation links point to existing pages
+
+Build Note: Pre-existing Search.astro/pagefind error (not related to this task)

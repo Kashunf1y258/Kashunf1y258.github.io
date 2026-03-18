@@ -1,0 +1,103 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+	<a href={`/projects/${project.id}/`}>
+		{project.data.heroImage && (
+			<img src={project.data.heroImage.src} alt="" width="720" height="360" />
+		)}
+		<h3 class="title">{project.data.title}</h3>
+		<p class="description">{project.data.description}</p>
+		<div class="meta">
+			<span class="status" data-status={project.data.status}>
+				{project.data.status}
+			</span>
+			<div class="tech">
+				{project.data.tech.slice(0, 3).map((t: string) => (
+					<span class="tech-tag">{t}</span>
+				))}
+			</div>
+		</div>
+	</a>
+</article>
+
+<style>
+	.project-card {
+		border-radius: 8px;
+		overflow: hidden;
+		background: rgb(var(--card-bg));
+		border: 1px solid rgb(var(--gray));
+		transition: box-shadow 0.2s ease, transform 0.2s ease;
+	}
+	.project-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--box-shadow);
+	}
+	.project-card a {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+	.project-card img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	.project-card .title {
+		margin: 1rem 1rem 0.5rem;
+		color: rgb(var(--black));
+		line-height: 1.2;
+	}
+	.project-card .description {
+		margin: 0 1rem;
+		color: rgb(var(--gray-dark));
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+	.project-card .meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 1rem;
+		padding-top: 0.5rem;
+		border-top: 1px solid rgb(var(--gray));
+	}
+	.project-card .status {
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	.project-card .status[data-status='active'] {
+		background: rgb(0, 128, 0);
+		color: white;
+	}
+	.project-card .status[data-status='completed'] {
+		background: rgb(var(--accent));
+		color: white;
+	}
+	.project-card .status[data-status='archived'] {
+		background: rgb(var(--gray));
+		color: rgb(var(--black));
+	}
+	.project-card .tech {
+		display: flex;
+		gap: 0.25rem;
+		flex-wrap: wrap;
+	}
+	.project-card .tech-tag {
+		padding: 0.125rem 0.375rem;
+		background: rgb(var(--gray-light));
+		border-radius: 4px;
+		font-size: 0.7rem;
+		color: rgb(var(--gray-dark));
+	}
+</style>

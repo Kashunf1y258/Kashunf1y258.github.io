@@ -1,0 +1,136 @@
+---
+/**
+ * AI Chat placeholder component
+ * 
+ * Feature flag: Set `enabled` prop to true when AI is implemented
+ * to enable the full AI chat interface.
+ * 
+ * Usage:
+ *   <AIChat enabled={true} />  // Full AI chat enabled
+ *   <AIChat />                  // Placeholder shown (default)
+ */
+
+interface Props {
+  /**
+   * Enable/disable the AI chat feature
+   * @default false
+   */
+  enabled?: boolean;
+}
+
+const { enabled = false } = Astro.props;
+---
+
+{enabled ? (
+  <div class="ai-chat-container">
+    <div class="ai-chat-header">
+      <h3>AI Assistant</h3>
+    </div>
+    <div class="ai-chat-messages">
+      <!-- Chat messages will be rendered here -->
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" placeholder="Ask me anything..." />
+      <button type="button">Send</button>
+    </div>
+  </div>
+) : (
+  <div class="ai-chat-placeholder">
+    <div class="placeholder-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 8V4H8"/>
+        <rect width="16" height="12" x="4" y="8" rx="2"/>
+        <path d="M2 14h2"/>
+        <path d="M20 14h2"/>
+        <path d="M15 13v2"/>
+        <path d="M9 13v2"/>
+      </svg>
+    </div>
+    <h3>AI Chat Coming Soon</h3>
+    <p>We're building an AI assistant to help you navigate and understand our content.</p>
+  </div>
+)}
+
+<style>
+  /* Placeholder styles */
+  .ai-chat-placeholder {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+    border: 2px dashed var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-bg-secondary);
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  .placeholder-icon {
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .ai-chat-placeholder h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-text);
+  }
+
+  .ai-chat-placeholder p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Active chat styles (for when enabled=true) */
+  .ai-chat-container {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+
+  .ai-chat-header {
+    padding: 1rem;
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ai-chat-header h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .ai-chat-messages {
+    padding: 1rem;
+    min-height: 200px;
+  }
+
+  .ai-chat-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .ai-chat-input input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .ai-chat-input button {
+    padding: 0.5rem 1rem;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+
+  .ai-chat-input button:hover {
+    opacity: 0.9;
+  }
+</style>

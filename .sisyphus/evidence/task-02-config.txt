@@ -1,0 +1,56 @@
+Task 2 QA Evidence
+Date: Wed Mar 18 2026 19:35:40
+
+=== Astro Config ===
+// @ts-check
+
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config';
+
+// https://astro.build/config
+export default defineConfig({
+	site: 'https://kashunf1y258.github.io',
+	base: '/',
+	integrations: [mdx(), sitemap()],
+});
+
+=== Build Result ===
+19:35:39 [content] Syncing content
+19:35:39 [WARN] [glob-loader] No files found matching "**/*.{md,mdx}" in directory "src/content/projects"
+19:35:39 [content] Synced content
+19:35:39 [types] Generated 254ms
+19:35:39 [build] output: "static"
+19:35:39 [build] mode: "static"
+19:35:39 [build] directory: /Users/ka_mac/Projects/personal/Kashunf1y258.github.io/dist/
+19:35:39 [build] Collecting build info...
+19:35:39 [build] ✓ Completed in 259ms.
+19:35:39 [build] Building static entrypoints...
+19:35:39 [vite] ✓ built in 337ms
+19:35:39 [vite] ✓ built in 2ms
+19:35:39 [build] Rearranging server assets...
+
+ generating static routes 
+19:35:39   ├─ /about/index.html (+8ms) 
+19:35:39   ├─ /blog/index.html (+2ms) 
+19:35:39   ├─ /blog/first-post/index.html (+1ms) 
+19:35:39   ├─ /blog/markdown-style-guide/index.html (+1ms) 
+19:35:39   ├─ /blog/second-post/index.html (+1ms) 
+19:35:39   ├─ /blog/third-post/index.html (+1ms) 
+19:35:39   ├─ /blog/using-mdx/index.html (+3ms) 
+19:35:39   ├─ /rss.xml (+5ms) 
+19:35:39   ├─ /index.html (+1ms) 
+19:35:39 ✓ Completed in 31ms.
+
+ generating optimized images 
+19:35:40 ✓ Completed in 396ms.
+
+19:35:40 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+19:35:40 [build] 8 page(s) built in 1.05s
+19:35:40 [build] Complete!
+
+=== Test Result: OK ===
+Build succeeded with exit code 0
+- MDX files rendered: /blog/using-mdx/index.html
+- RSS feed generated: /rss.xml
+- Sitemap generated: sitemap-index.xml
